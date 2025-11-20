@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Milan van Dam</title>
+  <title>Milan van Dam - Democratic Organizer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Milan van Dam" />
+  <link rel="icon" type="image/x-icon" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -938,6 +939,8 @@
 
       .hero-inner {
         padding-top: 40px;
+        margin-left: 15px;
+        margin-right: 15px;
       }
 
       .about-grid,
@@ -1332,7 +1335,7 @@
     </div>
   </section>
 
-  <!-- Contact / Get Involved -->
+  <!-- Contact -->
   <section id="contact">
     <div class="container">
       <div class="section-header">
@@ -1344,10 +1347,7 @@
       </div>
 
             <div class="contact-inner">
-        <form class="contact-form" id="contactForm" 
-            action="mailto:milanvandam99@gmail.com?subject=HSDA%20Website%20Contact"
-            method="POST"
-            enctype="text/plain">
+    <form class="contact-form" id="contactForm">
           <div class="contact-group">
             <label for="contactName">Name</label>
             <input id="contactName" name="contactName" type="text" placeholder="Your full name" required />
@@ -1355,7 +1355,7 @@
 
           <div class="contact-group">
             <label for="contactEmail">Email</label>
-            <input id="contactEmail" name="contactEmail" type="email" placeholder="you@example.com" required />
+            <input id="contactEmail" name="contactEmail" type="email" placeholder="you@something.com" required />
           </div>
 
           <div class="contact-group">
@@ -1401,7 +1401,7 @@
   <!-- Footer -->
   <footer>
     <div class="container footer-inner">
-      <span>Made by Milan... </span>
+      <span>© Milan van Dam 2025</span>
     </div>
   </footer>
 
@@ -1447,6 +1447,32 @@
         expToggle.textContent = expanded ? "Show fewer roles" : "Show more roles";
     });
     }
+
+    // Custom mailto handler for contact form
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("contactName").value;
+    const email = document.getElementById("contactEmail").value;
+    const subject = document.getElementById("contactSubject").value || "Website Contact";
+    const message = document.getElementById("contactMessage").value;
+
+    // Construct a clean email body
+    const body =
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Subject: " + subject + "\n\n" +
+        "Message:\n" + message;
+
+    // Replace YOUR_EMAIL_HERE with your real email:
+    const mailtoLink =
+        "mailto:YOUR_EMAIL_HERE"
+        + "?subject=" + encodeURIComponent(subject)
+        + "&body=" + encodeURIComponent(body);
+
+    // Open the user's email client
+    window.location.href = mailtoLink;
+});
   </script>
 </body>
 </html>
